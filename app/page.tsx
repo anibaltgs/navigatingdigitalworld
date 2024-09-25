@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
+
 import type React from 'react';
 import { DialogBasicOne } from '@/components/examples/dialog-basic-1';
 import XIcon from '@/components/website/icons/x';
@@ -96,7 +97,7 @@ export default function Motion() {
           <div className='flex items-center space-x-4 py-6'>
             <Link href='/docs'>
               <Button>
-                Explore Docs
+                Browse Docs
                 <ChevronRight className='ml-1.5 h-4 w-4 fill-white dark:fill-zinc-950' />
               </Button>
             </Link>

@@ -4,13 +4,14 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/website/theme-provider';
 import { GeistMono } from 'geist/font/mono';
+import { ViewTransitions } from 'next-view-transitions';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Motion-Primitives',
+  title: 'tgs_navigating_digital_worlds',
   description:
-    'Motion-Primitives, a collection of open-source, customizable motion components built with Framer Motion and Tailwind CSS. Perfect for enhancing your web projects with beautiful, smooth animations.',
+    'This is a comprensive extract of the Digital Worlds talk while adding more data and tools for parents.',
 };
 
 export default function RootLayout({
@@ -32,9 +33,11 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${GeistMono.variable} bg-white dark:bg-zinc-950`}
       >
-        <ThemeProvider attribute='class'>
-          <div className='isolate min-h-screen'>{children}</div>
-        </ThemeProvider>
+        <ViewTransitions>
+          <ThemeProvider attribute='class'>
+            <div className='isolate min-h-screen'>{children}</div>
+          </ThemeProvider>
+        </ViewTransitions>
       </body>
     </html>
   );

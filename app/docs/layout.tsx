@@ -4,7 +4,7 @@ import GitHubIcon from '@/components/website/icons/github';
 import XIcon from '@/components/website/icons/x';
 import { ScrollArea } from '@/components/website/scroll-area';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 
