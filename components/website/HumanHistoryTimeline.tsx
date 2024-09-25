@@ -9,6 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Lens } from '../ui/lens'; // Adjust the import path as necessary
+import { Rays, Beams } from '../ui/lens'; // Ensure these are exported from the lens module
 
 export function HumanHistoryTimeline() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -37,36 +39,44 @@ export function HumanHistoryTimeline() {
   };
 
   return (
-    <div className='flex w-full justify-center'>
-      <Card className='w-full max-w-3xl'>
-        <CardHeader>
-          <CardTitle>Outdoor Play in Human History</CardTitle>
-          <CardDescription>
-            Visualizing the time children spent playing outside throughout human
-            history
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {/* Timeline Container */}
-          <div className='relative flex h-16 w-full items-center justify-between overflow-hidden rounded-sm bg-[#1b191b] px-1'>
-            {generateTimeMarkers()}
-          </div>
-          {/* Annotations for Time Periods */}
-          <div className='mt-2 flex justify-between text-sm text-muted-foreground'>
-            <div>200,000 years ago</div>
-            <div>Today</div>
-          </div>
-        </CardContent>
-        <CardFooter>
-          <p className='text-sm text-muted-foreground'>
-            As you can see, the timeline didn't change color or did anything
-            special reaching the end. That's because the period from the 1970s
-            to 2024 is so insignificant on this scale, it's virtually
-            indistinguishable. We've only recently stopped playing outside, but
-            this change is negligible in the context of our entire history.
-          </p>
-        </CardFooter>
-      </Card>
+    <div className='relative flex w-full justify-center'>
+      {/* Lens Effect */}
+      <Lens>
+        <Beams />
+        <Rays />
+        {/* Timeline Card */}
+        <Card className='relative z-10 w-full max-w-3xl'>
+          <CardHeader>
+            <CardTitle>Outdoor Play in Human History</CardTitle>
+            <CardDescription>
+              Visualizing the time children spent playing outside throughout
+              human history
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {/* Timeline Container */}
+            <div className='relative flex h-16 w-full items-center justify-between overflow-hidden rounded-sm bg-[#1b191b] px-1'>
+              {generateTimeMarkers()}
+            </div>
+            {/* Annotations for Time Periods */}
+            <div className='mt-2 flex justify-between text-sm text-muted-foreground'>
+              <div>200,000 years ago</div>
+              <div>Today</div>
+            </div>
+          </CardContent>
+          <CardFooter>
+            <p className='text-sm text-muted-foreground'>
+              As you can see, the timeline didn't change color or did anything
+              special reaching the end. That's because the period from the 1970s
+              to 2024 is so insignificant on this scale, it's virtually
+              indistinguishable. We've only recently stopped playing outside,
+              but this change is negligible in the context of our entire
+              history.
+            </p>
+          </CardFooter>
+        </Card>
+      </Lens>
+      {/* Optional: Additional overlay or styling can be added here */}
     </div>
   );
 }
